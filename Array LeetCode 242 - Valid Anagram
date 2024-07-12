@@ -1,4 +1,37 @@
 - anagram: cat!=rat but tea= ate
--hash table and frequesncy map
-s="anagram"  t="nagaram"
-frequency map: a->3 n->1 g->1 r->1 m->1
+- hash table and frequesncy map
+- s="anagram"  t="nagaram"
+- frequency map: a->3 n->1 g->1 r->1 m->1
+- iterate through target and check if n is in the map
+- if found, subtract it
+- if all is subtracted and the target has extra letter, then map will be -1.. therefore we need conditional logic
+- therfore if less then 1 or not in the map, it should be false
+- tc= O(N+M)  SC= O(n)
+- 1st for loop: iterate through s and create items in map and increment
+- 2nd for loop: iterate through t and delete items if matched in map
+
+
+var isAnagram = function(s,t){
+  if(s.length !== t.length) return false;  // if length doesnt match then obvyo not anagram
+  let map={};  // create a map
+  for(let i=0; i<s.length; i++){  //
+    let letter= s[i];    // populate map
+
+    if(!map[letter]){    // if no letter
+      map[letter] =1;    // then create it and set it to 1
+    }else {
+      map[letter]++     // if already present, increment it
+    }
+  }
+  for(let i=0; i<t.length; i++){
+    let letter=t[i];
+    if(map[letter]=== undefined){  // if not in the map, false not an anagram
+       return false;
+    }
+   if(map[letter]<1){        // if more a's in t then, -1, then false
+      return false;
+  }
+   map[letter]--;
+}
+return true;
+};
