@@ -1,0 +1,21 @@
+nums [2,7,11,15]  target=9
+
+-assuming only 1 pair gives 9
+-assuming only unique values
+- we need constant lookup so use map ds and we map number and there indexes
+- 2->0  7->1  11->2  15->3
+- now search is 9-2 in the map
+- is true, return index of 2 and 7
+- TC: O(n)  SC: O(n)
+- return as set if we find another pair 
+
+vartwoSum = function(nums, target) {
+  let map = new Map();
+  for ( let i=0; i<nums.length; i++){
+    const num1= target-nums[i];
+    if(map.has(num1)){
+      return [i, map.get(num1)];
+    } else
+       map.set(nums[i], i);
+    }
+};
