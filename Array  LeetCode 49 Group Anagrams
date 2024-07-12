@@ -1,0 +1,23 @@
+Example 1:
+-Input: strs = ["eat","tea","tan","ate","nat","bat"]
+-Output: [["bat"],["nat","tan"],["ate","eat","tea"]]
+
+- we create a new array and split org array, sort then join 
+- then create a map and match both arrays and if the string is not matched, put it in next row
+- aet-> [eat, tea, ate]  ant->[tan, nat]  abt->[bat]
+TC: n.klogK   n: looping on org array  k: looping and sorting aphabetically 
+SC:O(nK)
+
+
+var groupA = function(strs){
+  let sorted = strs.map((str) => str.split("").sort(""). join(""));
+  let map = {};
+  for(let i=0; i<sorted.length; i++){
+    if(!map[sorted[i]]){
+        map[sorted[i]]=[strs[i]];
+    } else{
+        map[sorted[i]].push(strs[i]);
+    }
+  }
+  return Object.values(map);
+};
