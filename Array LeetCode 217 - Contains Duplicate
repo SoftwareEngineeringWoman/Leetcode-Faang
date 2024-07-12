@@ -1,0 +1,11 @@
+-TC: O(n) for searching
+- use set DS as it holds unique collection of values
+-use set and then compare size with org array. if different then duplicate exists.
+
+
+var cD= function(nums){
+  let set = new Set(nums);
+  return set.size !== nums.length;
+};
+
+
