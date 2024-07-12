@@ -1,0 +1,4 @@
+- anagram: cat!=rat but tea= ate
+-hash table and frequesncy map
+s="anagram"  t="nagaram"
+frequency map: a->3 n->1 g->1 r->1 m->1
