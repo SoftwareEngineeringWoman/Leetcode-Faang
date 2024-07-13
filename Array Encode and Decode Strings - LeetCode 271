@@ -1,0 +1,15 @@
+- array of strings strs=["Hello","World"]
+-encode this string and then decode into a list of arrays
+-new array: Encode. here we convert array of strings to string by joining, by concatenating
+- "Hello-encodeStrs-World"
+-in Decode: convert encode to array of strings by split
+
+//use param -> strs
+var encode = function(strs){
+  if(!strs.length) return null;   // if array null return null
+  return strs.join("-encodeStr-");  //join with or concat with -encodeStr-
+};
+var decode = function(s){   //param -> s
+   if(s === null) return [];  // return null 
+  return s.split("-encodeStr-");
+};
